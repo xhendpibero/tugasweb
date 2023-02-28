@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.108.0" />
+    <title>Carousel Template · Bootstrap v5.3</title>
+
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.3/examples/carousel/"
+    />
+
+    <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+      * {
+        font-family: "Poppins";
+      }
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, 0.1);
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
+          inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .logo {
+        width: 100px;
+      }
+
+      .nav-link .active {
+        color: black;
+      }
+
+      .home-section {
+        display: flex;
+        align-items: center;
+        min-height: 83vh;
+        background: url(webweb.png) no-repeat;
+        background-size: cover;
+        background-position: center;
+        margin-bottom: 4rem;
+      }
+
+      .content {
+        display: contents;
+      }
+
+      .content .teksdiam {
+        margin-left: 175px;
+        color: black;
+        font-size: 60px;
+        background: none;
+      }
+
+      .content .teksjalan {
+        margin-left: 20px;
+        height: 77px;
+        line-height: auto;
+        overflow: hidden;
+        background: none;
+        margin: 0px;
+      }
+
+      .teksjalan li {
+        list-style: none;
+        color: white;
+        font-size: 60px;
+        font-weight: 500;
+        position: relative;
+        top: -12px;
+        background: none;
+        animation: slide 12s steps(4) infinite;
+      }
+
+      @keyframes slide {
+        100% {
+          top: -350px;
+        }
+      }
+
+      .teksjalan li span {
+        position: relative;
+        margin: 5px 0;
+        line-height: 80px;
+        background: none;
+      }
+
+      .teksjalan li span::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        height: 80px;
+        width: 100%;
+
+        background: #f383cdcc;
+        border-left: 5px solid white;
+        animation: typing 3s steps(14) infinite;
+      }
+
+      @keyframes typing {
+        40%,
+        60% {
+          left: calc(100% + 30px);
+        }
+
+        100% {
+          left: 0;
+        }
+      }
+
+      @media (min-width: 1400px) {
+        .container,
+        .container-lg,
+        .container-md,
+        .container-sm,
+        .container-xl,
+        .container-xxl {
+          max-width: 1500px;
+        }
+      }
+
+      .marketing {
+        background-color: #ffc8df;
+      }
+
+      main,
+      body {
+        background-color: #ffc8df;
+      }
+
+      .sosmed {
+        text-align: center;
+      }
+
+      .img-carousel {
+        width: 60%;
+      }
+
+      .carousel-item .container {
+        text-align: center;
+      }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/354d36473f.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img class="logo" src="butterfly.png" alt="logo" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#portofolio">Portofolio</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Marketing messaging and featurettes
+  ================================================== -->
+      <!-- Wrap the rest of the page in another container to center all the content. -->
+
+      <section class="home-section" id="home">
+        <div class="content">
+          <div class="teksdiam">Hi! I'm</div>
+          <ul class="teksjalan">
+            <li><span>Agustina</span></li>
+            <li><span>Puspita</span></li>
+            <li><span>Sari</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="container marketing">
+        <div class="row g-5">
+          <div class="col-md-8" id="about">
+            <h3 class="pb-4 mb-4 fst-italic border-bottom">All Posting</h3>
+
+            <article class="blog-post">
+              <h2 class="blog-post-title mb-1">Belajar HTML Dasar</h2>
+              <p class="blog-post-meta">
+                Maret 1, 2023 by <a href="#">Asari</a>
+              </p>
+
+              <p>
+                Sebelum membuat sebuah website, kita harus belajar tentang apa
+                itu HTML. Secara umum, fungsi HTML adalah untuk mengelola
+                serangkaian data dan informasi sehingga suatu dokumen dapat
+                diakses dan ditampilkan di Internet melalui layanan web. Dapat
+                dikatakan bahwa html ini sendiri merupakan kerangka dasar dari
+                sebuah website yang akan dibentuk. Meskipun bukanlah sebuah
+                bahasa pemograman, html ini berfungsi untuk mengelola
+                serangkaian data dan informasi sehingga suatu dapat diakses dan
+                ditampilkan di internet
+              </p>
+              <hr />
+            </article>
+
+            <article class="blog-post">
+              <h2 class="blog-post-title mb-1">Perkenalan Tentang CSS</h2>
+              <p class="blog-post-meta">
+                Maret 1, 2023 by <a href="#">Asari</a>
+              </p>
+
+              <p>
+                Setelah Kita memahami apa itu HTML utnuk mempercantik halaman
+                web kita memerlukan CSS. CSS atau juga bisa disebut ascading
+                Style Sheets merupakan lembar format tata letak halaman web
+                peran HTML sebagai alat struktural dan alat bantu desain terasa
+                amat berat. Untuk itulah kemudian CSS dibuat sebagai solusi dari
+                tugas desain dan pemformatan, sedangkan HTML bisa kembali fokus
+                pada tata letak halaman web. CSS memiliki fungsi antara lain
+                yaitu memuat halam situs dengan cepat, desain diproses dengan
+                cepat dan adaptif terhadap perangkat
+              </p>
+              <hr />
+            </article>
+          </div>
+
+          <div class="col-md-4">
+            <div class="position-sticky" style="top: 2rem">
+              <div class="p-4 mb-3 bg-light rounded">
+                <h4 class="fst-italic">About</h4>
+                <p class="mb-1">Agustina Puspita Sari</p>
+                <p>Web Designer</p>
+                <p class="mb-1">Universitas Gunadarma</p>
+                <p>Informatika 2020</p>
+                <div class="sosmed">
+                  <br />
+                  <br />
+                  <p style="text-align: center">Contact Me</p>
+                  <a href="https://instagram.com/iniengingeng"
+                    ><i class="fa-brands fa-instagram"></i
+                  ></a>
+                  <a href="https://www.linkedin.com/in/agustina-puspita-sari"
+                    ><i class="fa-brands fa-linkedin-in"></i
+                  ></a>
+                  <a href="https://wa.me/6289504152149"
+                    ><i class="fa-brands fa-whatsapp"></i
+                  ></a>
+                  <a href="mailto:apsarira@gmail.com"
+                    ><i class="fa-regular fa-envelope"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- /.row -->
+
+        <!-- START THE FEATURETTES -->
+        <hr class="featurette-divider" />
+
+        <!-- /END THE FEATURETTES -->
+      </div>
+      <!-- /.container -->
+
+      <div
+        id="myCarousel"
+        class="carousel slide"
+        data-bs-ride="carousel"
+        id="portofolio"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#myCarousel"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#myCarousel"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#myCarousel"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container">
+              <img class="img-carousel" src="1.png" alt="logo" />
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container">
+              <img class="img-carousel" src="2.png" alt="logo" />
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container">
+              <img class="img-carousel" src="3.png" alt="logo" />
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <hr class="featurette-divider" />
+
+      <!-- FOOTER -->
+      <footer class="container">
+        <p class="float-end"><a href="#">Back to top</a></p>
+        <p>Agustina Puspita @ 2023</p>
+      </footer>
+    </main>
+
+    <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
